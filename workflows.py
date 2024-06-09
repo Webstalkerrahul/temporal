@@ -11,3 +11,5 @@ class FetchNewsWorkflow:
             start_to_close_timeout=timedelta(seconds=10),
         )
         return result
+    
+
