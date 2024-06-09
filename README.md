@@ -35,5 +35,9 @@ First I got the understanding how temporal work. I was trying to run the quick s
 After reading the codes thoroughly and it’s explanation I got a hand how the structure is and where should I put my code blocks so that it can run efficiently. I created a branch from main as version_0.1 in this I just fetched the raw data and printed it then I formatted it and got the things I want which were title, published_at, description and content. Once the formatting was in place I also tried printing it just to make sure everything was correct and then pushed the code and created a pull request and merge it with main.
 Now I checked out on the version_0.1 to main then created a new branch version_0.2 in which I wanted the add the SQL operation part I created the function one by one and tested them they all worked perfectly as I wanted. Then I committed the code and pushed to create a pull request then merged it with main.
 
-Again I did checkout to main and created new branch version_0.3 I which I wanted to add the send email notification so I found I needed a API key for that but the send grid was not allowing me to sign up. So I added the code for sending the email notification but not tested it. I have the email body set in html format for better looking. I have pushed and created a pull request  for version_0.3 and committed the code. When I have the API key I will test the code again then merge with the main branch. 
+Now on version0.3 we have the email notification in place. User gets the news articles(needs to be formatted before sending) in the mail.
+
+#**Challenges**
+Running temporal first time solved the problem by following some community posts and official documentation.
+Email notification was sending empty body so edited the worflow with custom variable in using the custom code section
 
