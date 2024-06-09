@@ -3,6 +3,8 @@ import asyncpg
 from datetime import datetime
 from temporalio.client import Client
 from workflows import FetchNewsWorkflow
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 async def insert_articles(articles):
     conn = await asyncpg.connect(
@@ -84,6 +86,25 @@ async def update_article():
     await conn.close()
     print("Article updated successfully!")
 
+async def send_email(subject, content):
+    api_key = 'api_key'
+    from_email = 'reachcedricbrown@gmail.com'
+    to_email = 'rkakade2143@gmail.com'
+    message = Mail(
+        from_email=from_email,
+        to_emails=to_email,
+        subject=subject,
+        html_content=content
+    )
+    try:
+        sg = SendGridAPIClient(api_key)
+        response = sg.send(message)
+        print(response.status_code)
+        print(response.body)
+        print(response.headers)
+    except Exception as e:
+        print(e.message)
+
 async def main():
     client = await Client.connect("localhost:7233")
 
@@ -98,7 +119,21 @@ async def main():
     # await insert_articles(articles[0:10])
     # await delete_all_articles()
     # await update_article()
-    await fetch_articles()
+    fetched_articles = await fetch_articles()
+    
+    # if fetched_articles:
+    #     email_content = "<h1>Latest News Articles</h1>"
+    #     for article in fetched_articles:
+    #         email_content += f"""
+    #         <h2>{article['title']}</h2>
+    #         <p>Published At:{article['published_at']}</p>
+    #         <p>Description: {article['description']}</p>
+    #         <p>{article['content']}</p>
+    #         <hr>
+    #         """
+        # await send_email("Latest News Articles", email_content)
+    # else:
+    #     print("No articles found.")
 
 if __name__ == "__main__":
     asyncio.run(main())
