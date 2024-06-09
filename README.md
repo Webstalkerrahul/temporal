@@ -1,7 +1,9 @@
 #**Python:**
 Ensure you have Python 3.7+ installed. Install the following libraries aiohttp, asyncpg, temporalio and sendgrid
 Command
-> pip install aiohttp asyncpg temporalio sendgrid
+
+> pip install aiohttp asyncpg temporalio sendgrid 
+
 #**PostgreSQL: **
 Ensure you have a PostgreSQL database named temporal and a table news_articles with the following schema:
 CREATE TABLE news_articles ( id SERIAL PRIMARY KEY, title TEXT, published_at TIMESTAMPTZ, description TEXT, content TEXT);
