@@ -26,7 +26,7 @@ Contains the functions for insert, fetch, delete, and update articles in the dat
 **fetch_articles()** this retrieves all the articles from the news_articles table 
 **send_email(subject, content)** this sends an email using send grid library with the fetched articles. It takes the subject of the mail and content as the argument.
 
-##**run_worker.py: **
+##**run_worker.py:**
 This executes the code of workflows and activity  
 
 #**Brief Explanation**
