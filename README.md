@@ -9,8 +9,11 @@ Command
 
 Ensure you have a PostgreSQL database named temporal and a table news_articles with the following schema:
 CREATE TABLE news_articles ( id SERIAL PRIMARY KEY, title TEXT, published_at TIMESTAMPTZ, description TEXT, content TEXT);
-#**SendGrid Account:**
-Sign up for a SendGrid account and obtain an API key.
+
+#**Novu Account:**
+
+Sign up for a novu account and obtain an API key and steup the trigger and workflow.
+
 
 #**Code process:**
 
